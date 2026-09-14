@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dixawnw735hsq"]
+
+[ext_resource type="PackedScene" uid="uid://bvcgj5pganept" path="res://Scenes/dialogue_system.tscn" id="1_hpc76"]
+
+[node name="MainScene" type="Node2D" unique_id=1382945681]
+
+[node name="DialogueUI" parent="." unique_id=860522117 instance=ExtResource("1_hpc76")]
+offset = Vector2(6, 95)
+transform = Transform2D(1, 0, 0, 1, 6, 95)

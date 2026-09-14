@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bvcgj5pganept"]
+
+[ext_resource type="Script" uid="uid://bf7fh34omkqog" path="res://Scripts/Dialogue Box/DialogueTest.cs" id="1_i2efg"]
+[ext_resource type="Script" uid="uid://b2uupy0kp1jw7" path="res://Scripts/Dialogue Box/DialogueSystem.cs" id="2_drpe7"]
+[ext_resource type="Texture2D" uid="uid://hl4rw3p3ww45" path="res://Srpites/placeholder textbox.png" id="3_wkns5"]
+[ext_resource type="FontFile" uid="uid://c8kptgd7x7rbu" path="res://Fonts/16-bit Dreams Variable.ttf" id="4_dqc5m"]
+
+[node name="DialogueUI" type="CanvasLayer" unique_id=860522117]
+script = ExtResource("1_i2efg")
+
+[node name="Control" type="Control" parent="." unique_id=305382917]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_drpe7")
+
+[node name="Text Box" type="TextureRect" parent="Control" unique_id=1481268761]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_wkns5")
+
+[node name="le text" type="RichTextLabel" parent="Control/Text Box" unique_id=1652735434]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 142.0
+offset_bottom = 39.0
+theme_override_colors/default_color = Color(1, 1, 0.70980394, 1)
+theme_override_constants/line_separation = 1
+theme_override_fonts/normal_font = ExtResource("4_dqc5m")
+theme_override_font_sizes/normal_font_size = 8
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="Timer" type="Timer" parent="Control/Text Box" unique_id=656179488]
+wait_time = 0.05
