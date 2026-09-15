@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cm1b52a2yyqnf"]
+
+[ext_resource type="Texture2D" uid="uid://cbrdivmsf47no" path="res://Srpites/WORK-Sheet.png" id="1_trg3g"]
+[ext_resource type="Theme" uid="uid://chwdx3txnxlr8" path="res://DefaultPanel.tres" id="2_8ty37"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhkr4"]
+atlas = ExtResource("1_trg3g")
+region = Rect2(0, 0, 43, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rqgy"]
+atlas = ExtResource("1_trg3g")
+region = Rect2(43, 0, 43, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40hq3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhkr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rqgy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Slacking" type="Node2D" unique_id=1978396550]
+
+[node name="SLACKER" type="AnimatedSprite2D" parent="." unique_id=807840065]
+position = Vector2(80, 60)
+sprite_frames = SubResource("SpriteFrames_40hq3")
+autoplay = "default"
+
+[node name="Panel" type="Panel" parent="SLACKER" unique_id=504702236]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+theme = ExtResource("2_8ty37")
+metadata/_edit_use_anchors_ = true
