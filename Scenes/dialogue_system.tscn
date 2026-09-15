@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bf7fh34omkqog" path="res://Scripts/Dialogue Box/DialogueTest.cs" id="1_i2efg"]
 [ext_resource type="Script" uid="uid://b2uupy0kp1jw7" path="res://Scripts/Dialogue Box/DialogueSystem.cs" id="2_drpe7"]
-[ext_resource type="Texture2D" uid="uid://b28l2vev0cx26" path="res://Srpites/textbox.png" id="3_i2efg"]
+[ext_resource type="Texture2D" uid="uid://b28l2vev0cx26" path="res://Srpites/UI/textbox.png" id="3_i2efg"]
 [ext_resource type="FontFile" uid="uid://cj21wmpwsbh7d" path="res://Fonts/That's Delaware! Mono.ttf" id="4_i2efg"]
 
 [node name="DialogueUI" type="CanvasLayer" unique_id=860522117]
