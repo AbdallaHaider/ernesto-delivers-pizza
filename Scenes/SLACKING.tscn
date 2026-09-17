@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://cbrdivmsf47no" path="res://Srpites/WORK-Sheet.png" id="1_trg3g"]
 [ext_resource type="Theme" uid="uid://chwdx3txnxlr8" path="res://DefaultPanel.tres" id="2_8ty37"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhkr4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ty37"]
 atlas = ExtResource("1_trg3g")
 region = Rect2(0, 0, 43, 43)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7rqgy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_40hq3"]
 atlas = ExtResource("1_trg3g")
 region = Rect2(43, 0, 43, 43)
 
@@ -15,10 +15,10 @@ region = Rect2(43, 0, 43, 43)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nhkr4")
+"texture": SubResource("AtlasTexture_8ty37")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7rqgy")
+"texture": SubResource("AtlasTexture_40hq3")
 }],
 "loop": 1,
 "name": &"default",
@@ -31,6 +31,7 @@ animations = [{
 position = Vector2(80, 60)
 sprite_frames = SubResource("SpriteFrames_40hq3")
 autoplay = "default"
+frame_progress = 0.031835895
 
 [node name="Panel" type="Panel" parent="SLACKER" unique_id=504702236]
 offset_left = -24.0
