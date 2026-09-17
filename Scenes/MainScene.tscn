@@ -4,6 +4,12 @@
 
 [node name="MainScene" type="Node2D" unique_id=1382945681]
 
+[node name="Background" type="ColorRect" parent="." unique_id=1115987499]
+z_index = -1
+offset_right = 160.0
+offset_bottom = 144.0
+color = Color(0.3529412, 0.22352941, 0.12941177, 1)
+
 [node name="DialogueUI" parent="." unique_id=860522117 instance=ExtResource("1_hpc76")]
 offset = Vector2(6, 95)
 transform = Transform2D(1, 0, 0, 1, 6, 95)
