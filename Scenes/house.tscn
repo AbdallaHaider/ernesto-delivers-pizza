@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bsi50csqikfh0"]
+
+[ext_resource type="Texture2D" uid="uid://oghv2xtrhhbx" path="res://Srpites/Suburbslop/Houses/surburbslop_house1.png" id="1_bwc8c"]
+[ext_resource type="Texture2D" uid="uid://daguv1ebh8sh7" path="res://Srpites/Suburbslop/Houses/surburbslop_house2.png" id="2_mhx8p"]
+[ext_resource type="Texture2D" uid="uid://cb4dme86r0f8f" path="res://Srpites/Suburbslop/Houses/surburbslop_house3.png" id="3_65la3"]
+[ext_resource type="Texture2D" uid="uid://c63moyi32crps" path="res://Srpites/Suburbslop/Houses/surburbslop_house4.png" id="4_qcuhb"]
+[ext_resource type="Texture2D" uid="uid://duwli30bai00u" path="res://Srpites/Suburbslop/Houses/surburbslop_house5.png" id="5_7685u"]
+[ext_resource type="Texture2D" uid="uid://d1k2ufogimere" path="res://Srpites/Suburbslop/Houses/surburbslop_house6.png" id="6_3853c"]
+[ext_resource type="Texture2D" uid="uid://brul3pmqs4ttk" path="res://Srpites/Suburbslop/Houses/surburbslop_house7.png" id="7_bhgw4"]
+[ext_resource type="Texture2D" uid="uid://da5sytg1kyp0l" path="res://Srpites/Suburbslop/Houses/surburbslop_house8.png" id="8_3ewhn"]
+[ext_resource type="Texture2D" uid="uid://bfy612wvlqj0u" path="res://Srpites/Suburbslop/Houses/surburbslop_house9.png" id="9_0fn05"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qmg03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bwc8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mhx8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_65la3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qcuhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7685u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3853c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bhgw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3ewhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0fn05")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykh0f"]
+size = Vector2(71, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmg03"]
+
+[node name="House" type="Area2D" unique_id=11001609]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1785392073]
+sprite_frames = SubResource("SpriteFrames_qmg03")
+
+[node name="House HitBox" type="CollisionShape2D" parent="." unique_id=918462115]
+position = Vector2(2.5, 14.5)
+shape = SubResource("RectangleShape2D_ykh0f")
+
+[node name="Pizza_HitBox" type="CollisionShape2D" parent="." unique_id=984272675]
+position = Vector2(-15, 15)
+shape = SubResource("RectangleShape2D_qmg03")
+debug_color = Color(0.9652254, 0.18919209, 0, 0.41960785)
