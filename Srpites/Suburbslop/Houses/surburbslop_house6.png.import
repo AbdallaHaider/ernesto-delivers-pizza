@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb4dme86r0f8f"
-path="res://.godot/imported/surburbslop_house3.png-309c559a82ba42b0fafb2456e41fc1e9.ctex"
+uid="uid://d1k2ufogimere"
+path="res://.godot/imported/surburbslop_house6.png-7fecd83a6ce41efec7c6952619a95028.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Srpites/Suburbslop/surburbslop_house3.png"
-dest_files=["res://.godot/imported/surburbslop_house3.png-309c559a82ba42b0fafb2456e41fc1e9.ctex"]
+source_file="res://Srpites/Suburbslop/Houses/surburbslop_house6.png"
+dest_files=["res://.godot/imported/surburbslop_house6.png-7fecd83a6ce41efec7c6952619a95028.ctex"]
 
 [params]
 
