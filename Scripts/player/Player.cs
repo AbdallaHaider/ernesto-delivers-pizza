@@ -22,7 +22,7 @@ public partial class Player : Area2D
 
     public bool stoppedMoving = true;
 
-    StringName[] animList = { "moped", "moped_sideways" };
+    StringName[] animList = {"moped", "moped_sideways", "moped_dih"};
 
 
     // Called when the node enters the scene tree for the first time.
@@ -69,10 +69,10 @@ public partial class Player : Area2D
         if (velocity.Length() > 0)
         {
             velocity = velocity.Normalized() * Speed;
-            var shouldFlip = (Math.Sign(xAxis.Dot(velocity)) * 0.5f + 0.5f);
-            int upOrDown = (1 - Math.Abs((int)Math.Round(yAxis.Dot(velocity))));
-            sprite.FlipH = (shouldFlip < 1.0);
-            sprite.Animation = animList[upOrDown];
+            float horDir = ((float)Math.Round(xAxis.Dot(velocity)));
+            float down = ((float)Math.Round((velocity.Y * 0.5f + 0.5f)));
+            sprite.FlipH = (horDir < 0.0);
+            sprite.Animation = animList[(int)Math.Abs(horDir) + 2 * (int)(down) * (1 - (int)Math.Abs(horDir))];
             sprite.Play();
         }
 

@@ -1,17 +1,26 @@
 [gd_scene format=3 uid="uid://dmkph33w2m5if"]
 
-[ext_resource type="Script" uid="uid://br4005skuyl8e" path="res://Scripts/player/Player.cs" id="1_qhqgy"]
+[ext_resource type="Script" uid="uid://br4005skuyl8e" path="res://scripts/player/Player.cs" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c42m4m1ecwufb" path="res://Srpites/player/placeholder_front.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://c3737thqtf6go" path="res://Srpites/player/motorcycle_up.png" id="2_so2s4"]
 [ext_resource type="Texture2D" uid="uid://dqr5byw2mxp3k" path="res://Srpites/player/placeholder_sideways.png" id="3_qlg0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qmg03"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_dqkch")
+"texture": ExtResource("2_so2s4")
 }],
 "loop": 1,
 "name": &"moped",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dqkch")
+}],
+"loop": 1,
+"name": &"moped_dih",
 "speed": 5.0
 }, {
 "frames": [{
@@ -39,3 +48,5 @@ animation = &"moped_sideways"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1295292720]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_qmg03")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=55428990]
