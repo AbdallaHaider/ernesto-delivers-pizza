@@ -6,6 +6,9 @@ public partial class Player : Area2D
 {
 
     [Export]
+    private PackedScene Pizza { get; set; }
+
+    [Export]
     public int Speed { get; set; } = 1;
 
 	public Vector2 ScreenSize;
@@ -18,11 +21,13 @@ public partial class Player : Area2D
 
     public Vector2 velocity = Vector2.Zero;
 
-    public bool prevDir = true;
-
-    public bool stoppedMoving = true;
+    double totalTime = 0.0f;
 
     StringName[] animList = {"moped", "moped_sideways", "moped_dih"};
+
+    public Vector2 fireDir = Vector2.Zero;
+
+    bool shouldFire = false;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -32,57 +37,80 @@ public partial class Player : Area2D
 		Show();
 		ScreenSize = GetViewportRect().Size;
 		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        fireDir.X = 0.0f;
+        fireDir.Y = -1.0f;
 	}
 
     public override void _Process(double delta)
     {
         if (Input.IsActionPressed("move_right"))
         {
-            stoppedMoving = false;
             velocity.X += 1;
         }
 
         if (Input.IsActionPressed("move_left"))
         {
-            stoppedMoving = false;
             velocity.X -= 1;
         }
 
         if (Input.IsActionPressed("move_down"))
         {
-            stoppedMoving = false;
             velocity.Y += 1;
         }
 
         if (Input.IsActionPressed("move_up"))
         {
-            stoppedMoving = false;
             velocity.Y -= 1;
         }
 
+        if (Input.IsActionJustPressed("fire_pizza"))
+        {
+            shouldFire = true;
+        }
 
+    }
+
+    public void FirePizzaGun(Vector2 FireDir)
+    {
+        Pizza pizzaProjectile = Pizza.Instantiate<Pizza>();
+        pizzaProjectile.dir = FireDir;
+        AddChild(pizzaProjectile);
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
+        totalTime += delta;
         if (velocity.Length() > 0)
         {
-            velocity = velocity.Normalized() * Speed;
-            float horDir = ((float)Math.Round(xAxis.Dot(velocity)));
-            float down = ((float)Math.Round((velocity.Y * 0.5f + 0.5f)));
+            Vector2 DirVelocity = velocity.Normalized();
+            velocity = DirVelocity * (float)Speed;
+            float horDir = ((float)Math.Round(xAxis.Dot(DirVelocity)));
+            float absDir = Math.Abs(horDir);
+            float down = ((float)Math.Round((DirVelocity.Y * 0.5f + 0.5f)));
             sprite.FlipH = (horDir < 0.0);
-            sprite.Animation = animList[(int)Math.Abs(horDir) + 2 * (int)(down) * (1 - (int)Math.Abs(horDir))];
+            sprite.Animation = animList[(int)absDir + 2 * (int)(down) * (1 - (int)absDir)];
+            fireDir.X = -1.0f + absDir;
+            fireDir.Y = -absDir;
             sprite.Play();
         }
 
         Position += velocity;
 
+        if (shouldFire)
+        {
+            if (totalTime > 0.25)
+            {
+                GD.Print("GO PIZZA!");
+                FirePizzaGun(fireDir);
+                totalTime = 0.0;
+            }
+            shouldFire = false;
+        }
         //choose between up or left
 
 
         velocity = Vector2.Zero;
-        stoppedMoving = true;
 
     }
 }

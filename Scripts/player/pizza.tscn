@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://counl2koh05cp"]
+
+[ext_resource type="Script" uid="uid://c3dc30qxsapk6" path="res://scripts/player/Pizza.cs" id="1_v8mno"]
+[ext_resource type="Texture2D" uid="uid://bcf2skc2f5538" path="res://Srpites/player/pizza_box_placeholder.png" id="2_2ic81"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qmg03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2ic81")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykh0f"]
+
+[node name="Pizza" type="Area2D" unique_id=40903283]
+script = ExtResource("1_v8mno")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=894670052]
+sprite_frames = SubResource("SpriteFrames_qmg03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1682861723]
+shape = SubResource("CircleShape2D_ykh0f")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1715993057]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
