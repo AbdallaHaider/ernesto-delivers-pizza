@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdn7tptxl7fi6"
-path="res://.godot/imported/windows.png-155f4f1ce3202e72b4f1e1ba2115a5a9.ctex"
+uid="uid://8i66af1tyelp"
+path="res://.godot/imported/liquidcity_tileset.png-c63523c94be636b689b8fb7bf041fa7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Srpites/Suburbslop/Windows/windows.png"
-dest_files=["res://.godot/imported/windows.png-155f4f1ce3202e72b4f1e1ba2115a5a9.ctex"]
+source_file="res://Srpites/Liquid city/liquidcity_tileset.png"
+dest_files=["res://.godot/imported/liquidcity_tileset.png-c63523c94be636b689b8fb7bf041fa7e.ctex"]
 
 [params]
 
