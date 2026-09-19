@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsi50csqikfh0"]
 
-[ext_resource type="Texture2D" uid="uid://cbjqshw34gg5c" path="res://Srpites/Suburbslop/Houses/houses grayscale.png" id="1_okrnj"]
+[ext_resource type="Texture2D" uid="uid://wfirggxgjvh1" path="res://Srpites/ALL BUILDINGS.png" id="1_okrnj"]
 [ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="1_qtlar"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykh0f"]
