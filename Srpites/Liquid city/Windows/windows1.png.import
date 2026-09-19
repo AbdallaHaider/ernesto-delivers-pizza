@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dktvkvkyofewb"
-path="res://.godot/imported/window.png-43692a9a7c3f9fb2f0660c41c826d3c1.ctex"
+uid="uid://c366i2n4o31wa"
+path="res://.godot/imported/windows1.png-9dc8ac55d3be2921e495ce12056e4356.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Srpites/Liquid city/Windows/window.png"
-dest_files=["res://.godot/imported/window.png-43692a9a7c3f9fb2f0660c41c826d3c1.ctex"]
+source_file="res://Srpites/Liquid city/Windows/windows1.png"
+dest_files=["res://.godot/imported/windows1.png-9dc8ac55d3be2921e495ce12056e4356.ctex"]
 
 [params]
 
