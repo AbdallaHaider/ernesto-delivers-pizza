@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bsi50csqikfh0"]
 
 [ext_resource type="Texture2D" uid="uid://cbjqshw34gg5c" path="res://Srpites/Suburbslop/Houses/houses grayscale.png" id="1_okrnj"]
+[ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="1_qtlar"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykh0f"]
+shader = ExtResource("1_qtlar")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykh0f"]
 size = Vector2(71, 35)
@@ -11,16 +15,19 @@ size = Vector2(71, 35)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1407336356]
+material = SubResource("ShaderMaterial_ykh0f")
 position = Vector2(3, 3)
 texture = ExtResource("1_okrnj")
 region_enabled = true
 region_rect = Rect2(7, 7, 77, 57)
 
 [node name="House HitBox" type="CollisionShape2D" parent="." unique_id=918462115]
+visible = false
 position = Vector2(2.5, 14.5)
 shape = SubResource("RectangleShape2D_ykh0f")
 
 [node name="Pizza_HitBox" type="CollisionShape2D" parent="." unique_id=984272675]
+visible = false
 position = Vector2(-15, 15)
 shape = SubResource("RectangleShape2D_qmg03")
 debug_color = Color(0.9652254, 0.18919209, 0, 0.41960785)

@@ -74,7 +74,8 @@ public partial class Player : Area2D
     {
         Pizza pizzaProjectile = Pizza.Instantiate<Pizza>();
         pizzaProjectile.dir = FireDir;
-        AddChild(pizzaProjectile);
+        pizzaProjectile.Position = Position;
+        GetTree().Root.AddChild(pizzaProjectile);
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
