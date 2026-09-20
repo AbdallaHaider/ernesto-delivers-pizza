@@ -1,33 +1,34 @@
 [gd_scene format=3 uid="uid://bsi50csqikfh0"]
 
-[ext_resource type="Texture2D" uid="uid://cbjqshw34gg5c" path="res://Srpites/Suburbslop/Houses/houses grayscale.png" id="1_okrnj"]
 [ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="1_qtlar"]
+[ext_resource type="Script" uid="uid://d1to68yp172jt" path="res://scripts/House.cs" id="1_rk7hg"]
+[ext_resource type="Texture2D" uid="uid://wfirggxgjvh1" path="res://Srpites/ALL BUILDINGS.png" id="3_rk7hg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykh0f"]
 shader = ExtResource("1_qtlar")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dolh7"]
+atlas = ExtResource("3_rk7hg")
+region = Rect2(12, 23, 77, 57)
+margin = Rect2(40, 23, 0, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykh0f"]
-size = Vector2(71, 35)
+size = Vector2(70.5, 28.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmg03"]
-
-[node name="House" type="Area2D" unique_id=11001609]
-metadata/_edit_group_ = true
+[node name="House" type="StaticBody2D" unique_id=674313508]
+script = ExtResource("1_rk7hg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1407336356]
+texture_repeat = 3
 material = SubResource("ShaderMaterial_ykh0f")
-position = Vector2(3, 3)
-texture = ExtResource("1_okrnj")
+position = Vector2(0, -36)
+texture = SubResource("AtlasTexture_dolh7")
 region_enabled = true
-region_rect = Rect2(7, 7, 77, 57)
+region_rect = Rect2(13, 10, 138, 70)
 
 [node name="House HitBox" type="CollisionShape2D" parent="." unique_id=918462115]
-visible = false
-position = Vector2(2.5, 14.5)
+position = Vector2(-3.75, -15.75)
 shape = SubResource("RectangleShape2D_ykh0f")
 
-[node name="Pizza_HitBox" type="CollisionShape2D" parent="." unique_id=984272675]
-visible = false
-position = Vector2(-15, 15)
-shape = SubResource("RectangleShape2D_qmg03")
-debug_color = Color(0.9652254, 0.18919209, 0, 0.41960785)
+[node name="WindowSpawnLocation" type="Node2D" parent="." unique_id=1831999503]
+position = Vector2(-21, -15)
