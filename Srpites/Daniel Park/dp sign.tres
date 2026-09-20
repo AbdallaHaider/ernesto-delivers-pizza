@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://bnxw005ig5nqs"]
+
+[ext_resource type="Texture2D" uid="uid://cs88w25fedlk3" path="res://Srpites/Daniel Park/daniel park sign.png" id="1_ns8jd"]
+
+[resource]
+atlas = ExtResource("1_ns8jd")

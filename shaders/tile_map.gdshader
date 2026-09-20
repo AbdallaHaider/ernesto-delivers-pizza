@@ -36,7 +36,7 @@ void fragment() {
 	float alpha = texture(TEXTURE, UV).a;
 	int index = int(round(grayScale.r * 4.0));
 
-	COLOR = vec4(suburbsloppallete[index], alpha);
+	COLOR = vec4(greenpallete[index], alpha);
 	
 }
 
