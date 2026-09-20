@@ -29,7 +29,7 @@ public partial class Pizza : Area2D
             totalTime = 0.0f;
             sprite.FlipH = !sprite.FlipH;
         }
-        Position += (dir * (float)delta) * 200.0f;
+        Position += (dir * (float)delta) * 100.0f;
     }
 
     private void OnVisibleOnScreenNotifier2DScreenExited()

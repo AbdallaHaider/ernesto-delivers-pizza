@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d1i000chk4spm"]
+
+[ext_resource type="Script" uid="uid://c68583d6ak2uw" path="res://scripts/Window.cs" id="1_qvkcj"]
+[ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="1_to7fh"]
+[ext_resource type="Texture2D" uid="uid://bdn7tptxl7fi6" path="res://Srpites/Suburbslop/Windows/windows.png" id="2_qvkcj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykh0f"]
+shader = ExtResource("1_to7fh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmg03"]
+size = Vector2(20, 5)
+
+[node name="Window" type="Area2D" unique_id=2030287258]
+script = ExtResource("1_qvkcj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1833780728]
+material = SubResource("ShaderMaterial_ykh0f")
+position = Vector2(0, 0.5000002)
+scale = Vector2(1, 1.0555557)
+texture = ExtResource("2_qvkcj")
+region_enabled = true
+region_rect = Rect2(4, 7, 24, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1861603214]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_qmg03")
+debug_color = Color(0.97456163, 0, 0.4293245, 0.41960785)

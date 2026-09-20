@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://br4005skuyl8e" path="res://scripts/player/Player.cs" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://counl2koh05cp" path="res://scripts/player/pizza.tscn" id="2_dolh7"]
-[ext_resource type="Texture2D" uid="uid://c42m4m1ecwufb" path="res://Srpites/player/placeholder_front.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://1aa7fex8tnhl" path="res://Srpites/player/placeholder_front.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://c3737thqtf6go" path="res://Srpites/player/motorcycle_up.png" id="2_so2s4"]
-[ext_resource type="Texture2D" uid="uid://dqr5byw2mxp3k" path="res://Srpites/player/placeholder_sideways.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dkx65xafssw6f" path="res://Srpites/player/placeholder_sideways.png" id="3_qlg0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qmg03"]
 animations = [{
@@ -34,21 +34,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmg03"]
-size = Vector2(12, 3)
+size = Vector2(12, 10)
 
-[node name="Player" type="Area2D" unique_id=51295537]
+[node name="Player" type="CharacterBody2D" unique_id=561613543]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_qhqgy")
 Pizza = ExtResource("2_dolh7")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1329183798]
+z_as_relative = false
+y_sort_enabled = true
 texture_filter = 1
 texture_repeat = 1
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_qmg03")
 animation = &"moped_sideways"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1295292720]
-position = Vector2(0, 6.5)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_qmg03")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=55428990]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t8pcj0m3dpe0"
-path="res://.godot/imported/buildings.png-df3befc99b8f55dbe1cd1f043ad37483.ctex"
+uid="uid://bax8mnqbx8hoe"
+path="res://.godot/imported/daniel park foliage.png-caf9263fb8f7dc2a7355e7797ba4fb04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Srpites/buildings.png"
-dest_files=["res://.godot/imported/buildings.png-df3befc99b8f55dbe1cd1f043ad37483.ctex"]
+source_file="res://Srpites/Daniel Park/daniel park foliage.png"
+dest_files=["res://.godot/imported/daniel park foliage.png-caf9263fb8f7dc2a7355e7797ba4fb04.ctex"]
 
 [params]
 

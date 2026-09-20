@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdn7tptxl7fi6"
-path="res://.godot/imported/windows.png-155f4f1ce3202e72b4f1e1ba2115a5a9.ctex"
+uid="uid://bdgt00fyu7b4n"
+path="res://.godot/imported/umbero2.png-0916be216c438e4dc569fa6cd13257e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Srpites/Suburbslop/Windows/windows.png"
-dest_files=["res://.godot/imported/windows.png-155f4f1ce3202e72b4f1e1ba2115a5a9.ctex"]
+source_file="res://Srpites/umbero2.png"
+dest_files=["res://.godot/imported/umbero2.png-0916be216c438e4dc569fa6cd13257e5.ctex"]
 
 [params]
 

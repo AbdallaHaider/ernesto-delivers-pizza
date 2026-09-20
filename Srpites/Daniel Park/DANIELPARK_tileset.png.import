@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkgixpm6hsqmv"
-path="res://.godot/imported/buildings.png-d8778355af47a90e31c65de42dcf834b.ctex"
+uid="uid://x8yc17eas0x5"
+path="res://.godot/imported/DANIELPARK_tileset.png-b9b17e65ba97b39772f1f151f176d48e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Srpites/Liquid city/Buildings/buildings.png"
-dest_files=["res://.godot/imported/buildings.png-d8778355af47a90e31c65de42dcf834b.ctex"]
+source_file="res://Srpites/Daniel Park/DANIELPARK_tileset.png"
+dest_files=["res://.godot/imported/DANIELPARK_tileset.png-b9b17e65ba97b39772f1f151f176d48e.ctex"]
 
 [params]
 

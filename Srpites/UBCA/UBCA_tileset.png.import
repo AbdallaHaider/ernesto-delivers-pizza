@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbjqshw34gg5c"
-path="res://.godot/imported/houses grayscale.png-162cedfbc3414c5187a48bb61264838e.ctex"
+uid="uid://cledbhwkqncyg"
+path="res://.godot/imported/UBCA_tileset.png-f0747bb08b6dbeffb373c05808b62494.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Srpites/Suburbslop/Houses/houses grayscale.png"
-dest_files=["res://.godot/imported/houses grayscale.png-162cedfbc3414c5187a48bb61264838e.ctex"]
+source_file="res://Srpites/UBCA/UBCA_tileset.png"
+dest_files=["res://.godot/imported/UBCA_tileset.png-f0747bb08b6dbeffb373c05808b62494.ctex"]
 
 [params]
 

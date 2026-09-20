@@ -2,14 +2,14 @@ using Godot;
 using System;
 using System.Security.Cryptography.X509Certificates;
 
-public partial class Player : Area2D
+public partial class Player : CharacterBody2D
 {
 
     [Export]
     private PackedScene Pizza { get; set; }
 
     [Export]
-    public int Speed { get; set; } = 1;
+    public int Speed { get; set; } = 100;
 
 	public Vector2 ScreenSize;
 
@@ -73,7 +73,9 @@ public partial class Player : Area2D
     public void FirePizzaGun(Vector2 FireDir)
     {
         Pizza pizzaProjectile = Pizza.Instantiate<Pizza>();
-        pizzaProjectile.dir = FireDir;
+        pizzaProjectile.dir.X = FireDir.X;
+        pizzaProjectile.dir.Y = FireDir.Y;
+        GD.Print(pizzaProjectile.dir.X + "," + pizzaProjectile.dir.Y);
         pizzaProjectile.Position = Position;
         GetTree().Root.AddChild(pizzaProjectile);
     }
@@ -85,7 +87,7 @@ public partial class Player : Area2D
         if (velocity.Length() > 0)
         {
             Vector2 DirVelocity = velocity.Normalized();
-            velocity = DirVelocity * (float)Speed;
+            velocity = DirVelocity * (float)Speed * (float)delta;
             float horDir = ((float)Math.Round(xAxis.Dot(DirVelocity)));
             float absDir = Math.Abs(horDir);
             float down = ((float)Math.Round((DirVelocity.Y * 0.5f + 0.5f)));
@@ -96,7 +98,7 @@ public partial class Player : Area2D
             sprite.Play();
         }
 
-        Position += velocity;
+        MoveAndCollide(velocity * (float)delta * Speed);
 
         if (shouldFire)
         {
