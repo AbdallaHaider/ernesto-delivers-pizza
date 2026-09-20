@@ -27,7 +27,7 @@ public partial class Pizza : Area2D
 
     public override void _PhysicsProcess(double delta)
     {
-        Position += (dir * (float)delta) * 200.0f;
+        Position += (dir * (float)delta) * 250.0f;
     }
 
     private void OnVisibleOnScreenNotifier2DScreenExited()

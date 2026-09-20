@@ -9,11 +9,12 @@ public partial class Player : CharacterBody2D
     private PackedScene Pizza { get; set; }
 
     [Export]
-    public int Speed { get; set; } = 125;
+    public float Speed { get; set; } = 0;
 
     public Vector2 ScreenSize;
 
     public AnimatedSprite2D sprite;
+
 
     public Vector2 yAxis = new Vector2(0.0f, 1.0f);
 
@@ -21,13 +22,23 @@ public partial class Player : CharacterBody2D
 
     public Vector2 velocity = Vector2.Zero;
 
+    public Vector2 Dir = Vector2.Zero;
+
+    public Vector2 prevDir = Vector2.Zero;
+
     double totalTime = 0.0f;
+
+    double time = 0.0;
 
     StringName[] animList = { "up_idle", "sideways_idle", "down_idle", "up_moving", "sideways_moving", "down_moving" };
 
     public Vector2 fireDir = Vector2.Zero;
 
     bool shouldFire = false;
+
+    float pressed = 0;
+
+    float accel = 1;
 
     int index = 1;
 
@@ -43,6 +54,8 @@ public partial class Player : CharacterBody2D
 		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         fireDir.X = 0.0f;
         fireDir.Y = -1.0f;
+        prevDir.X = 1.0f;
+        prevDir.Y = 0.0f;
         sprite.Animation = animList[index];
         sprite.SpeedScale = 1.25f;
         sprite.Play();
@@ -50,30 +63,43 @@ public partial class Player : CharacterBody2D
 
     public override void _Process(double delta)
     {
+        accel = 2; 
+
         if (Input.IsActionPressed("move_right"))
         {
-            velocity.X += 1;
+            Dir.X = 1;
+            pressed = 1;
         }
 
         if (Input.IsActionPressed("move_left"))
         {
-            velocity.X -= 1;
+            Dir.X = -1;
+            pressed = 1;
         }
 
         if (Input.IsActionPressed("move_down"))
         {
-            velocity.Y += 1;
+            Dir.Y = 1;
+            pressed = 1;
         }
 
         if (Input.IsActionPressed("move_up"))
         {
-            velocity.Y -= 1;
+            Dir.Y = -1;
+            pressed = 1;
         }
 
         if (Input.IsActionJustPressed("fire_pizza"))
         {
             shouldFire = true;
         }
+
+        if (Input.IsActionPressed("deAccel"))
+        {
+            accel = -8.0f;
+        }
+
+        Dir = Dir.Normalized();
 
     }
 
@@ -83,7 +109,8 @@ public partial class Player : CharacterBody2D
         pizzaProjectile.dir.X = FireDir.X;
         pizzaProjectile.dir.Y = FireDir.Y;
         GD.Print(pizzaProjectile.dir.X + "," + pizzaProjectile.dir.Y);
-        pizzaProjectile.Position = Position;
+        //pizzaProjectile.Position = collisionPos.GlobalPosition;
+        pizzaProjectile.Position = new Vector2(Position.X, Position.Y - 8);
         GetTree().Root.AddChild(pizzaProjectile);
     }
 
@@ -91,14 +118,16 @@ public partial class Player : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
         totalTime += delta;
-        if (velocity.Length() > 0)
+
+        Speed += 1.0f * accel * (float)delta;
+        Speed = Math.Clamp(Speed, 0.0f, 3.5f);
+
+        if (Speed > 0)
         {
             sprite.SpeedScale = 2.0f;
-            Vector2 DirVelocity = velocity.Normalized();
-            velocity = DirVelocity * (float)Speed * (float)delta;
-            float horDir = ((float)Math.Round(xAxis.Dot(DirVelocity)));
+            float horDir = ((float)Math.Round(xAxis.Dot(prevDir)));
             float absDir = Math.Abs(horDir);
-            float down = ((float)Math.Round((DirVelocity.Y * 0.5f + 0.5f)));
+            float down = ((float)Math.Round((prevDir.Y * 0.5f + 0.5f)));
             sprite.FlipH = (horDir < 0.0);
             index = (int)absDir + 2 * (int)(down) * (1 - (int)absDir) + 3;
             sprite.Animation = animList[index];
@@ -116,8 +145,27 @@ public partial class Player : CharacterBody2D
                 sprite.Animation = animList[index];
             }
         }
+        time += delta;
+        if (time > 2.0)
+        {
+            GD.Print(Dir);
+            GD.Print(velocity);
+            GD.Print(Speed);
+            time = 0;
+        }
 
-            MoveAndCollide(velocity * (float)delta * Speed);
+        if (pressed == 1)
+        {
+            velocity = Dir * Speed;
+            prevDir.X = Dir.X;
+            prevDir.Y = Dir.Y;
+        } 
+        else
+        {
+            velocity = prevDir * Speed;
+        }
+
+            MoveAndCollide(velocity);
 
         if (shouldFire)
         {
@@ -131,8 +179,8 @@ public partial class Player : CharacterBody2D
         }
         //choose between up or left
 
-
-        velocity = Vector2.Zero;
+        Dir = Vector2.Zero;
+        pressed = 0.0f;
 
     }
 }
