@@ -43,6 +43,7 @@ void fragment() {
 	int index = int(round(grayScale.r * 4.0));
 
 	COLOR = vec4(palletes[4 * pallete_index + index], alpha);
+
 	
 }
 
