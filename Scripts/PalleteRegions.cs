@@ -21,10 +21,10 @@ public partial class PalleteRegions : Node2D
 
         GD.Print(areas.Length);
 
-        indexConnection.Add("Suburbslop", 2);
+        indexConnection.Add("Suburbslop", 3);
         indexConnection.Add("Daniel", 0);
         indexConnection.Add("UBCA", 1);
-        indexConnection.Add("LiquidCity", 3);
+        indexConnection.Add("LiquidCity", 2);
 
 
         for (int i = 0; i < areas.Length; i++)
