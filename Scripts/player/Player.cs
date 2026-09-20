@@ -9,13 +9,13 @@ public partial class Player : CharacterBody2D
     private PackedScene Pizza { get; set; }
 
     [Export]
-    public int Speed { get; set; } = 100;
+    public int Speed { get; set; } = 125;
 
-	public Vector2 ScreenSize;
+    public Vector2 ScreenSize;
 
-	public AnimatedSprite2D sprite;
+    public AnimatedSprite2D sprite;
 
-	public Vector2 yAxis = new Vector2(0.0f, 1.0f);
+    public Vector2 yAxis = new Vector2(0.0f, 1.0f);
 
     public Vector2 xAxis = new Vector2(1.0f, 0.0f);
 
@@ -23,11 +23,15 @@ public partial class Player : CharacterBody2D
 
     double totalTime = 0.0f;
 
-    StringName[] animList = {"moped", "moped_sideways", "moped_dih"};
+    StringName[] animList = { "up_idle", "sideways_idle", "down_idle", "up_moving", "sideways_moving", "down_moving" };
 
     public Vector2 fireDir = Vector2.Zero;
 
     bool shouldFire = false;
+
+    int index = 1;
+
+    int idle_ind = 1;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -39,7 +43,10 @@ public partial class Player : CharacterBody2D
 		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         fireDir.X = 0.0f;
         fireDir.Y = -1.0f;
-	}
+        sprite.Animation = animList[index];
+        sprite.SpeedScale = 1.25f;
+        sprite.Play();
+    }
 
     public override void _Process(double delta)
     {
@@ -86,19 +93,31 @@ public partial class Player : CharacterBody2D
         totalTime += delta;
         if (velocity.Length() > 0)
         {
+            sprite.SpeedScale = 2.0f;
             Vector2 DirVelocity = velocity.Normalized();
             velocity = DirVelocity * (float)Speed * (float)delta;
             float horDir = ((float)Math.Round(xAxis.Dot(DirVelocity)));
             float absDir = Math.Abs(horDir);
             float down = ((float)Math.Round((DirVelocity.Y * 0.5f + 0.5f)));
             sprite.FlipH = (horDir < 0.0);
-            sprite.Animation = animList[(int)absDir + 2 * (int)(down) * (1 - (int)absDir)];
+            index = (int)absDir + 2 * (int)(down) * (1 - (int)absDir) + 3;
+            sprite.Animation = animList[index];
             fireDir.X = -1.0f + absDir;
             fireDir.Y = -absDir;
             sprite.Play();
+        } 
+        else
+        {
+            if (idle_ind != index)
+            {
+                sprite.SpeedScale = 1.25f;
+                index -= 3;
+                idle_ind = index;
+                sprite.Animation = animList[index];
+            }
         }
 
-        MoveAndCollide(velocity * (float)delta * Speed);
+            MoveAndCollide(velocity * (float)delta * Speed);
 
         if (shouldFire)
         {

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bsi50csqikfh0"]
 
 [ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="1_qtlar"]
-[ext_resource type="Script" uid="uid://d1to68yp172jt" path="res://scripts/House.cs" id="1_rk7hg"]
+[ext_resource type="Script" uid="uid://be2p350w0ukac" path="res://scripts/House.cs" id="1_rk7hg"]
 [ext_resource type="Texture2D" uid="uid://wfirggxgjvh1" path="res://Srpites/ALL BUILDINGS.png" id="3_rk7hg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykh0f"]
@@ -13,7 +13,7 @@ region = Rect2(12, 23, 77, 57)
 margin = Rect2(40, 23, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmg03"]
-size = Vector2(66, 29)
+size = Vector2(78, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykh0f"]
 size = Vector2(59, 10)
@@ -30,7 +30,7 @@ region_enabled = true
 region_rect = Rect2(13, 10, 138, 70)
 
 [node name="House HitBox" type="CollisionShape2D" parent="." unique_id=918462115]
-position = Vector2(-4, -15.5)
+position = Vector2(-3, -12.5)
 shape = SubResource("RectangleShape2D_qmg03")
 
 [node name="PizzaArea" type="Area2D" parent="." unique_id=138950036]
