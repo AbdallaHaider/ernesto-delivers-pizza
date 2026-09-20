@@ -1,13 +1,28 @@
 [gd_scene format=3 uid="uid://counl2koh05cp"]
 
 [ext_resource type="Script" uid="uid://c3dc30qxsapk6" path="res://scripts/player/Pizza.cs" id="1_v8mno"]
-[ext_resource type="Texture2D" uid="uid://bcf2skc2f5538" path="res://Srpites/player/pizza_box_placeholder.png" id="2_2ic81"]
+[ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="2_2ic81"]
+[ext_resource type="Texture2D" uid="uid://b4f8tlcx6so1x" path="res://Srpites/player/pizza.png" id="3_rwndh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xr15s"]
+shader = ExtResource("2_2ic81")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57rmh"]
+atlas = ExtResource("3_rwndh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfnr0"]
+atlas = ExtResource("3_rwndh")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qmg03"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2ic81")
+"texture": SubResource("AtlasTexture_57rmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfnr0")
 }],
 "loop": 1,
 "name": &"default",
@@ -18,12 +33,16 @@ animations = [{
 radius = 6.0
 
 [node name="Pizza" type="Area2D" unique_id=40903283]
+z_index = 1
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_v8mno")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=894670052]
+material = SubResource("ShaderMaterial_xr15s")
 sprite_frames = SubResource("SpriteFrames_qmg03")
+frame_progress = 0.34404257
+speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1682861723]
 shape = SubResource("CircleShape2D_ykh0f")

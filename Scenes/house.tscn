@@ -13,7 +13,7 @@ region = Rect2(12, 23, 77, 57)
 margin = Rect2(40, 23, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmg03"]
-size = Vector2(78, 35)
+size = Vector2(78, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykh0f"]
 size = Vector2(59, 10)
@@ -24,16 +24,17 @@ script = ExtResource("1_rk7hg")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1407336356]
 texture_repeat = 3
 material = SubResource("ShaderMaterial_ykh0f")
-position = Vector2(0, -36)
+position = Vector2(0, -19)
 texture = SubResource("AtlasTexture_dolh7")
 region_enabled = true
 region_rect = Rect2(13, 10, 138, 70)
 
 [node name="House HitBox" type="CollisionShape2D" parent="." unique_id=918462115]
-position = Vector2(-3, -12.5)
+position = Vector2(-3, 1)
 shape = SubResource("RectangleShape2D_qmg03")
 
 [node name="PizzaArea" type="Area2D" parent="." unique_id=138950036]
+position = Vector2(0, 17)
 collision_layer = 2
 collision_mask = 0
 

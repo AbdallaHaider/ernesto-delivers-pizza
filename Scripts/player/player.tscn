@@ -226,16 +226,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmg03"]
-size = Vector2(12, 9)
+size = Vector2(12, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykh0f"]
-size = Vector2(20, 21)
+size = Vector2(0, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=561613543]
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_qhqgy")
 Pizza = ExtResource("2_dolh7")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1329183798]
 z_as_relative = false
@@ -245,22 +246,21 @@ texture_repeat = 1
 material = SubResource("ShaderMaterial_g0bbo")
 position = Vector2(0, -13.45)
 sprite_frames = SubResource("SpriteFrames_qmg03")
-animation = &"up_idle"
-frame_progress = 0.13815722
+animation = &"sideways_moving"
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1295292720]
-position = Vector2(0, -4.5)
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_qmg03")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=55428990]
 position_smoothing_speed = 0.0
 
 [node name="Pallette Area" type="Area2D" parent="." unique_id=1154767910]
+position = Vector2(0, -12)
 collision_layer = 8
 collision_mask = 0
 
 [node name="Pallette Collision" type="CollisionShape2D" parent="Pallette Area" unique_id=820276831]
-position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_ykh0f")
 debug_color = Color(1, 0.6, 0.69803923, 0.41960785)

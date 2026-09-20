@@ -8,16 +8,16 @@ public partial class Pizza : Area2D
     public delegate void HitEventHandler();
 
 
-    double totalTime = 0.0f;
     private AnimatedSprite2D sprite;
     public Vector2 dir;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
+        sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        sprite.Play();
         GD.Print("PIZZA!");
         Show();
-        sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,12 +27,6 @@ public partial class Pizza : Area2D
 
     public override void _PhysicsProcess(double delta)
     {
-        totalTime += delta;
-        if (totalTime > 0.1f)
-        {
-            totalTime = 0.0f;
-            sprite.FlipH = !sprite.FlipH;
-        }
         Position += (dir * (float)delta) * 200.0f;
     }
 

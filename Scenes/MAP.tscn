@@ -259,7 +259,7 @@ size = Vector2(1646.5, 1460)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ps8y"]
 size = Vector2(1294, 3104)
 
-[node name="Node2D" type="Node2D" unique_id=1707079964]
+[node name="Root" type="Node2D" unique_id=1707079964]
 y_sort_enabled = true
 script = ExtResource("1_ldr44")
 
@@ -293,6 +293,7 @@ position = Vector2(24, 78)
 position = Vector2(116, 76)
 
 [node name="Player" parent="." unique_id=51295537 instance=ExtResource("10_dgiai")]
+position = Vector2(30, 20)
 
 [node name="Signs" type="Node2D" parent="." unique_id=638621619]
 
@@ -439,7 +440,7 @@ shape = SubResource("RectangleShape2D_w3njm")
 debug_color = Color(1, 0.6, 0, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete Regions/Suburbslop" unique_id=1990853217]
-position = Vector2(298, 582.5)
+position = Vector2(284, 594)
 shape = SubResource("RectangleShape2D_iww3s")
 debug_color = Color(1, 0.6, 0, 0.41960785)
 
