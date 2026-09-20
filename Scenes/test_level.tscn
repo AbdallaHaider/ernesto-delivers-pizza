@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://gyx1hg1kytih"]
 
-[ext_resource type="PackedScene" uid="uid://dmkph33w2m5if" path="res://Scripts/player/player.tscn" id="1_2venv"]
-[ext_resource type="Script" uid="uid://d3lfuvwd8qh2r" path="res://Scripts/levels/TestLevel.cs" id="1_qcd3b"]
+[ext_resource type="PackedScene" uid="uid://dmkph33w2m5if" path="res://scripts/player/player.tscn" id="1_2venv"]
+[ext_resource type="Script" uid="uid://d3lfuvwd8qh2r" path="res://scripts/levels/TestLevel.cs" id="1_qcd3b"]
 [ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="2_ahbqi"]
 [ext_resource type="Texture2D" uid="uid://did4p5vk8biw7" path="res://Srpites/grass.png" id="2_x4b8f"]
 [ext_resource type="Texture2D" uid="uid://x8yc17eas0x5" path="res://Srpites/Daniel Park/DANIELPARK_tileset.png" id="5_3ihge"]
-[ext_resource type="PackedScene" uid="uid://bsi50csqikfh0" path="res://Scenes/house.tscn" id="5_tmr53"]
+[ext_resource type="PackedScene" uid="uid://bsi50csqikfh0" path="res://scenes/house.tscn" id="5_tmr53"]
 [ext_resource type="Texture2D" uid="uid://dj2mnoabqqh1f" path="res://Srpites/road.png" id="5_xq3o0"]
 [ext_resource type="Texture2D" uid="uid://8i66af1tyelp" path="res://Srpites/Liquid city/liquidcity_tileset.png" id="6_akkqd"]
 [ext_resource type="Texture2D" uid="uid://cledbhwkqncyg" path="res://Srpites/UBCA/UBCA_tileset.png" id="7_8v7by"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cdkgkasv61n4w" path="res://Srpites/UBCA/ubca2.tres" id="17_pkn5o"]
 [ext_resource type="Texture2D" uid="uid://be56djlwv45m8" path="res://Srpites/UBCA/ubca3.tres" id="18_c8cyl"]
 [ext_resource type="Texture2D" uid="uid://cw5hyb6uks82s" path="res://Srpites/UBCA/ubca4.tres" id="19_y42of"]
+[ext_resource type="Script" uid="uid://chg1nsgkd175d" path="res://scripts/PalleteRegions.cs" id="11_dw7u0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akkqd"]
 shader = ExtResource("2_ahbqi")
@@ -231,6 +232,24 @@ shader = ExtResource("2_ahbqi")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i3ufj"]
 shader = ExtResource("2_ahbqi")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw7u0"]
+size = Vector2(11.577982, 7.779816)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyxdr"]
+size = Vector2(1434, 1973)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpk0m"]
+size = Vector2(2696, 1130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qs1vn"]
+size = Vector2(1262, 1125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13hs1"]
+size = Vector2(1646.5, 1460)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fptmo"]
+size = Vector2(1720, 3104)
+
 [node name="Node2D" type="Node2D" unique_id=1707079964]
 y_sort_enabled = true
 script = ExtResource("1_qcd3b")
@@ -337,5 +356,59 @@ y_sort_enabled = true
 material = SubResource("ShaderMaterial_i3ufj")
 position = Vector2(-2377, 502)
 texture = ExtResource("19_y42of")
+
+[node name="Pallete Regions" type="Node2D" parent="." unique_id=376677043]
+position = Vector2(-1812, -411)
+script = ExtResource("11_dw7u0")
+
+[node name="Suburbslop" type="Area2D" parent="Pallete Regions" unique_id=1951875842]
+position = Vector2(1812, 411)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pallete Regions/Suburbslop" unique_id=886062525]
+position = Vector2(-1050, 1145)
+scale = Vector2(109, 109)
+shape = SubResource("RectangleShape2D_dw7u0")
+debug_color = Color(1, 0.6, 0, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete Regions/Suburbslop" unique_id=32377828]
+position = Vector2(298, 582.5)
+shape = SubResource("RectangleShape2D_fyxdr")
+debug_color = Color(1, 0.6, 0, 0.41960785)
+
+[node name="Daniel" type="Area2D" parent="Pallete Regions" unique_id=1641094141]
+position = Vector2(1014, -103)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete Regions/Daniel" unique_id=497858344]
+position = Vector2(465, -455)
+shape = SubResource("RectangleShape2D_kpk0m")
+debug_color = Color(0, 0.6392157, 0.38039216, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pallete Regions/Daniel" unique_id=1985216521]
+position = Vector2(-252, 672.5)
+shape = SubResource("RectangleShape2D_qs1vn")
+debug_color = Color(0, 0.6392157, 0.38039216, 0.41960785)
+
+[node name="UBCA" type="Area2D" parent="Pallete Regions" unique_id=1713908108]
+position = Vector2(-649, 1331)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete Regions/UBCA" unique_id=2034585397]
+position = Vector2(-43.25, -81)
+shape = SubResource("RectangleShape2D_13hs1")
+
+[node name="LiquidCity" type="Area2D" parent="Pallete Regions" unique_id=1424028283]
+position = Vector2(3742, 1013)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete Regions/LiquidCity" unique_id=1426775168]
+position = Vector2(-55, -585)
+shape = SubResource("RectangleShape2D_fptmo")
+debug_color = Color(0.99999994, 0.0049599702, 0.08488799, 0.41960785)
 
 [editable path="House1"]
