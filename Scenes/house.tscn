@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="1_qtlar"]
 [ext_resource type="Script" uid="uid://d1to68yp172jt" path="res://scripts/House.cs" id="1_rk7hg"]
 [ext_resource type="Texture2D" uid="uid://wfirggxgjvh1" path="res://Srpites/ALL BUILDINGS.png" id="3_rk7hg"]
+[ext_resource type="Script" uid="uid://bi7xvnwoja6hv" path="res://scripts/PizzaHitbox.cs" id="4_se78b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykh0f"]
 shader = ExtResource("1_qtlar")
@@ -12,10 +13,13 @@ atlas = ExtResource("3_rk7hg")
 region = Rect2(12, 23, 77, 57)
 margin = Rect2(40, 23, 0, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykh0f"]
-size = Vector2(70.5, 28.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmg03"]
+size = Vector2(66, 29)
 
-[node name="House" type="StaticBody2D" unique_id=674313508]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykh0f"]
+size = Vector2(59, 15)
+
+[node name="House" type="StaticBody2D" unique_id=1584328309]
 script = ExtResource("1_rk7hg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1407336356]
@@ -27,3 +31,11 @@ region_enabled = true
 region_rect = Rect2(13, 10, 138, 70)
 
 [node name="House HitBox" type="CollisionShape2D" parent="." unique_id=918462115]
+position = Vector2(-4, -15.5)
+shape = SubResource("RectangleShape2D_qmg03")
+
+[node name="PizzaHitbox" type="CollisionShape2D" parent="." unique_id=1351772930]
+position = Vector2(-4.5, -18.5)
+shape = SubResource("RectangleShape2D_ykh0f")
+debug_color = Color(0.99954575, 0, 0.124000736, 0.41960785)
+script = ExtResource("4_se78b")

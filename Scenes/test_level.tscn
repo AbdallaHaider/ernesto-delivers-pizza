@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://gyx1hg1kytih"]
 
-[ext_resource type="PackedScene" uid="uid://dmkph33w2m5if" path="res://Scripts/player/player.tscn" id="1_2venv"]
-[ext_resource type="Script" uid="uid://d3lfuvwd8qh2r" path="res://Scripts/levels/TestLevel.cs" id="1_qcd3b"]
+[ext_resource type="PackedScene" uid="uid://dmkph33w2m5if" path="res://scripts/player/player.tscn" id="1_2venv"]
+[ext_resource type="Script" uid="uid://d3lfuvwd8qh2r" path="res://scripts/levels/TestLevel.cs" id="1_qcd3b"]
 [ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="2_ahbqi"]
 [ext_resource type="Texture2D" uid="uid://did4p5vk8biw7" path="res://Srpites/grass.png" id="2_x4b8f"]
 [ext_resource type="Texture2D" uid="uid://x8yc17eas0x5" path="res://Srpites/Daniel Park/DANIELPARK_tileset.png" id="5_3ihge"]
-[ext_resource type="PackedScene" uid="uid://bsi50csqikfh0" path="res://Scenes/house.tscn" id="5_tmr53"]
+[ext_resource type="PackedScene" uid="uid://bsi50csqikfh0" path="res://scenes/house.tscn" id="5_tmr53"]
 [ext_resource type="Texture2D" uid="uid://dj2mnoabqqh1f" path="res://Srpites/road.png" id="5_xq3o0"]
 [ext_resource type="Texture2D" uid="uid://8i66af1tyelp" path="res://Srpites/Liquid city/liquidcity_tileset.png" id="6_akkqd"]
 [ext_resource type="Texture2D" uid="uid://cledbhwkqncyg" path="res://Srpites/UBCA/UBCA_tileset.png" id="7_8v7by"]
@@ -196,6 +196,7 @@ sources/6 = SubResource("TileSetAtlasSource_so54a")
 sources/7 = SubResource("TileSetAtlasSource_8v7by")
 
 [node name="Node2D" type="Node2D" unique_id=1707079964]
+y_sort_enabled = true
 script = ExtResource("1_qcd3b")
 
 [node name="Trees" type="TileMapLayer" parent="." unique_id=1196034875]
@@ -217,9 +218,6 @@ position = Vector2(32, -45)
 [node name="Sprite2D" parent="House1" index="0" unique_id=1407336356]
 position = Vector2(2, 7)
 region_rect = Rect2(199, 78, 76, 50)
-
-[node name="Pizza_HitBox" parent="House1" index="2" unique_id=984272675]
-position = Vector2(15.85, 15)
 
 [node name="House2" parent="." unique_id=1720887683 instance=ExtResource("5_tmr53")]
 position = Vector2(119, -44)

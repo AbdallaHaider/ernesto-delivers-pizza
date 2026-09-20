@@ -4,6 +4,10 @@ using System.Diagnostics;
 
 public partial class Pizza : Area2D
 {
+    [Signal]
+    public delegate void HitEventHandler();
+
+
     double totalTime = 0.0f;
     private AnimatedSprite2D sprite;
     public Vector2 dir;
@@ -35,5 +39,12 @@ public partial class Pizza : Area2D
     private void OnVisibleOnScreenNotifier2DScreenExited()
     {
         QueueFree();
+    } 
+    private void OnBodyEntered(PizzaHitbox body)
+    {
+        GD.Print("succ");
+        Hide();
+        EmitSignal(SignalName.Hit);
+        GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
     }
 }
