@@ -24,7 +24,7 @@ void fragment() {
 	vec3 grayScale = texture(TEXTURE, UV).rgb;
 	float alpha = texture(TEXTURE, UV).a;
 	int index = int(round(grayScale.r * 4.0));
-	COLOR = vec4(ubcapallete[index], alpha);
+	COLOR = vec4(liquidcitypallete[index], alpha);
 	
 }
 
