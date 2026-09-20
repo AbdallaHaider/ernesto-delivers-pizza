@@ -66,6 +66,7 @@ fire_pizza={
 
 2d_physics/layer_2="PizzaHitbox"
 2d_physics/layer_3="Pizza"
+2d_physics/layer_4="Pallettes"
 
 [physics]
 

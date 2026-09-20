@@ -46,5 +46,6 @@ public partial class Pizza : Area2D
         Hide();
         EmitSignal(SignalName.Hit);
         GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+        QueueFree();
     }
 }
