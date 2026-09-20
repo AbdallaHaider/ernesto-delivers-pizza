@@ -33,14 +33,14 @@ public partial class Pizza : Area2D
             totalTime = 0.0f;
             sprite.FlipH = !sprite.FlipH;
         }
-        Position += (dir * (float)delta) * 100.0f;
+        Position += (dir * (float)delta) * 200.0f;
     }
 
     private void OnVisibleOnScreenNotifier2DScreenExited()
     {
         QueueFree();
     } 
-    private void OnBodyEntered(PizzaHitbox body)
+    private void OnBodyEntered(Area2D body)
     {
         GD.Print("succ");
         Hide();

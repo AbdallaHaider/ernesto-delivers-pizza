@@ -1,6 +1,11 @@
 using Godot;
 using System;
 
+public partial class PizzaHitbox : CollisionShape2D
+{
+
+}
+
 public partial class House : StaticBody2D
 {
     [Export]
