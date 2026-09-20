@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://cj21wmpwsbh7d" path="res://Fonts/That's Delaware! Mono.ttf" id="4_i2efg"]
 
 [node name="DialogueUI" type="CanvasLayer" unique_id=860522117]
+offset = Vector2(6, 95)
+transform = Transform2D(1, 0, 0, 1, 6, 95)
 script = ExtResource("1_i2efg")
 _SLACKING = ExtResource("2_wkns5")
 

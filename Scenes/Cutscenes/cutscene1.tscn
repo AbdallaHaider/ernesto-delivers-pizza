@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://d1r0an60fiwua"]
+
+[ext_resource type="Script" uid="uid://dnx5uxq246ss7" path="res://Scenes/Cutscenes/Cutscene1.cs" id="1_hebtr"]
+[ext_resource type="PackedScene" uid="uid://bvcgj5pganept" path="res://Scenes/dialogue_system.tscn" id="2_me7cq"]
+[ext_resource type="Texture2D" uid="uid://dw3qr70w13wf8" path="res://Srpites/Portraits/Ernesto.png" id="3_8g2ws"]
+[ext_resource type="Theme" uid="uid://chwdx3txnxlr8" path="res://DefaultPanel.tres" id="4_v7qlv"]
+[ext_resource type="Texture2D" uid="uid://dpkpm6w1jqtxn" path="res://Srpites/Portraits/OldMan.png" id="5_pjp0n"]
+
+[node name="Cutscene1" type="Node2D" unique_id=1441218215]
+script = ExtResource("1_hebtr")
+
+[node name="DialogueUI" parent="." unique_id=860522117 instance=ExtResource("2_me7cq")]
+
+[node name="Background" type="ColorRect" parent="." unique_id=195749965]
+z_index = -1
+offset_right = 160.0
+offset_bottom = 144.0
+color = Color(0.3529412, 0.22352941, 0.12941177, 1)
+
+[node name="Ernesto" type="Sprite2D" parent="." unique_id=1578526759]
+position = Vector2(40, 60)
+texture = ExtResource("3_8g2ws")
+
+[node name="Panel" type="Panel" parent="Ernesto" unique_id=2144906541]
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+theme = ExtResource("4_v7qlv")
+metadata/_edit_use_anchors_ = true
+
+[node name="OldMan" type="Sprite2D" parent="." unique_id=1456449030]
+position = Vector2(120, 60)
+texture = ExtResource("5_pjp0n")
+
+[node name="Panel" type="Panel" parent="OldMan" unique_id=1224672907]
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+theme = ExtResource("4_v7qlv")

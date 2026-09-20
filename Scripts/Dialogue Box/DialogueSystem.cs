@@ -1,9 +1,13 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class DialogueSystem : Control
 {
 	public static DialogueSystem Instance { get; private set; }
+
+	[Signal]
+	public delegate void DialogueFinishedEventHandler();
 
 	private RichTextLabel _textDisplay;
 	private Timer _typingTimer;
@@ -22,18 +26,15 @@ public partial class DialogueSystem : Control
 		_typingTimer.Timeout += OnTypeTimerTimeout;
 	}
 
-	public void ShowMessage(string text)
-	{
-		
-	}
-
-	public void ShowMessage(string[] text)
+	public async Task ShowMessage(string[] text)
 	{
 		_dialoguePages = text;
         _currentPage = 0;
         
         Show();
         DisplayCurrentPage();
+
+		await ToSignal(this, SignalName.DialogueFinished);
 	}
 
 	private void DisplayCurrentPage()
@@ -80,6 +81,7 @@ public partial class DialogueSystem : Control
                 else
                 {
                     Hide();
+					EmitSignal(SignalName.DialogueFinished);
                 }
 			}
 		}
