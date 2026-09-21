@@ -36,10 +36,15 @@ public partial class Pizza : Area2D
     } 
     private void OnBodyEntered(Area2D body)
     {
+        House hitHouse = body.GetParent() as House;
+        if (hitHouse != null && hitHouse.IsWaitingForPizza)
+        {
+        hitHouse.ReceivePizza();
         GD.Print("succ");
         Hide();
         EmitSignal(SignalName.Hit);
         GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
         QueueFree();
+        }
     }
 }

@@ -60,6 +60,7 @@ public partial class Player : CharacterBody2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
+        DeliveryManager.Instance.StartDeliveryRound(30);
 		GD.Print("venus");
 		Show();
 		ScreenSize = GetViewportRect().Size;
@@ -235,6 +236,8 @@ public partial class Player : CharacterBody2D
                 prevDir.X = -prevDir.X;
                 prevDir.Y = -prevDir.Y;
                 State = States.STAGGERED;
+                ScoreManager.Instance.AddScore(-100);
+                ScoreManager.Instance.ResetMult();
             }
         }
 

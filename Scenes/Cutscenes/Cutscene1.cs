@@ -34,8 +34,20 @@ public partial class Cutscene1 : Node2D
 		]);
 
 		await DialogueSystem.Instance.ShowMessage([
-			"cu"
+			"If you were thinking of big money,",
+			"then you would've been out there",
+			"delivering some pizzas!!!",
+			"instead of sitting here",
+			"and running my business to the ground"
 		]);
+
+		await DialogueSystem.Instance.ShowMessage([
+			"aight chill out old man,",
+			"if anything I'm the one keeping",
+			"this place alive."
+		]);
+
+		
 	}
 
 	private async Task Wait(double seconds = 1.0f)

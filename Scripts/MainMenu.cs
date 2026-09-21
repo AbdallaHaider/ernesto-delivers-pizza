@@ -31,7 +31,7 @@ public partial class MainMenu : Control
 
 	public void OnStartButtonPressed()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/MainScene.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/Cutscenes/cutscene1.tscn");
 	}
 
 	public void OnQuitButtonPressed()

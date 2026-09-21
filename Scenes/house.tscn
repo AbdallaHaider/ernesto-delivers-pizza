@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bsi50csqikfh0"]
 
 [ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="1_qtlar"]
-[ext_resource type="Script" uid="uid://be2p350w0ukac" path="res://scripts/House.cs" id="1_rk7hg"]
+[ext_resource type="Script" uid="uid://be2p350w0ukac" path="res://Scripts/House.cs" id="1_rk7hg"]
 [ext_resource type="Texture2D" uid="uid://wfirggxgjvh1" path="res://Srpites/ALL BUILDINGS.png" id="3_rk7hg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykh0f"]
@@ -18,8 +18,10 @@ size = Vector2(78, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykh0f"]
 size = Vector2(59, 10)
 
-[node name="House" type="StaticBody2D" unique_id=1584328309]
+[node name="House" type="StaticBody2D" unique_id=1584328309 node_paths=PackedStringArray("HouseSprite", "WindowCollision") groups=["Houses"]]
 script = ExtResource("1_rk7hg")
+HouseSprite = NodePath("Sprite2D")
+WindowCollision = NodePath("PizzaArea/PizzaHitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1407336356]
 texture_repeat = 3
@@ -41,4 +43,5 @@ collision_mask = 0
 [node name="PizzaHitbox" type="CollisionShape2D" parent="PizzaArea" unique_id=1351772930]
 position = Vector2(-4.5, -21)
 shape = SubResource("RectangleShape2D_ykh0f")
+disabled = true
 debug_color = Color(0.99954575, 0, 0.124000736, 0.41960785)
