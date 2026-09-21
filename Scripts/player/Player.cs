@@ -132,6 +132,20 @@ public partial class Player : CharacterBody2D
         if (invincible)
         {
             time_since_invincibility += delta;
+            if ((int)Math.Round((time_since_invincibility / 3.0) * 40.0) % 2.0 == 0)
+            {
+                sprite.Hide();
+            }
+            else
+            {
+                sprite.Show();
+            }
+            if (time_since_invincibility > 3.0f)
+            {
+                time_since_invincibility = 0;
+                sprite.Show();
+                invincible = false;
+            }
         }
 
         Speed += 1.0f * accel * (float)delta;
@@ -183,16 +197,11 @@ public partial class Player : CharacterBody2D
             shouldFire = false;
         }
 
-        if (time_since_invincibility > 3.0f)
-        {
-            invincible = false;
-        }
 
     }
 
     public void Stagger(double delta)
     {
-        GD.Print();
         Speed -= 0.1f;
         pressed = 0.0f;
         time_since_stagger += delta;
