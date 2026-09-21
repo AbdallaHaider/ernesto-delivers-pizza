@@ -27,6 +27,11 @@ public partial class ScoreManager : Node
 		CurrentMultiplier += amount;
 	}
 
+	public void Reset()
+	{
+		CurrentScore = 0;
+		CurrentMultiplier = 0;
+	}
     public void AddScore(int amount)
     {
 		if(amount < 0)

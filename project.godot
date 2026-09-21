@@ -13,7 +13,7 @@ config_version=5
 config/name="ernesto delivers pizza"
 run/main_scene="uid://c5nrvngpy8ihn"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dw3qr70w13wf8"
 
 [autoload]
 

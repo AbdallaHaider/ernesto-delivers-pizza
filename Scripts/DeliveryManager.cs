@@ -49,7 +49,8 @@ public partial class DeliveryManager : Node
 			string cutscenePath = $"res://Scenes/Cutscenes/cutscene{cutscenenumber}.tscn";
             GD.Print("All pizzas delivered!");
 			CurrentLevel++;
-			GetTree().ChangeSceneToFile(cutscenePath);
+			StartDeliveryRound();
+			//GetTree().ChangeSceneToFile(cutscenePath);
             // You can trigger the next wave or a win screen here
         }
     }
