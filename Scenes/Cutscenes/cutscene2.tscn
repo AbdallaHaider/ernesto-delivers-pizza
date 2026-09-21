@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dcylonjr7uswo"]
+
+[ext_resource type="Script" uid="uid://dnx5uxq246ss7" path="res://Scenes/Cutscenes/Cutscene1.cs" id="1_3pgjv"]
+[ext_resource type="PackedScene" uid="uid://bvcgj5pganept" path="res://Scenes/dialogue_system.tscn" id="2_vmk2n"]
+[ext_resource type="Texture2D" uid="uid://dw3qr70w13wf8" path="res://Srpites/Portraits/Ernesto.png" id="3_d4ruh"]
+[ext_resource type="Theme" uid="uid://chwdx3txnxlr8" path="res://DefaultPanel.tres" id="4_2k155"]
+[ext_resource type="Texture2D" uid="uid://dpkpm6w1jqtxn" path="res://Srpites/Portraits/OldMan.png" id="5_eam68"]
+[ext_resource type="Texture2D" uid="uid://cbrdivmsf47no" path="res://Srpites/WORK-Sheet.png" id="6_m5usx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ty37"]
+atlas = ExtResource("6_m5usx")
+region = Rect2(0, 0, 43, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40hq3"]
+atlas = ExtResource("6_m5usx")
+region = Rect2(43, 0, 43, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8g2ws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ty37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40hq3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Cutscene1" type="Node2D" unique_id=1441218215]
+script = ExtResource("1_3pgjv")
+
+[node name="DialogueUI" parent="." unique_id=860522117 instance=ExtResource("2_vmk2n")]
+
+[node name="Background" type="ColorRect" parent="." unique_id=195749965]
+z_index = -1
+offset_right = 160.0
+offset_bottom = 144.0
+color = Color(0.3529412, 0.22352941, 0.12941177, 1)
+
+[node name="Ernesto" type="Sprite2D" parent="." unique_id=1578526759]
+visible = false
+position = Vector2(40, 60)
+texture = ExtResource("3_d4ruh")
+
+[node name="Panel" type="Panel" parent="Ernesto" unique_id=2144906541]
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+theme = ExtResource("4_2k155")
+metadata/_edit_use_anchors_ = true
+
+[node name="OldMan" type="Sprite2D" parent="." unique_id=1456449030]
+visible = false
+position = Vector2(120, 60)
+texture = ExtResource("5_eam68")
+
+[node name="Panel" type="Panel" parent="OldMan" unique_id=1224672907]
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+theme = ExtResource("4_2k155")
+
+[node name="SLACKER" type="AnimatedSprite2D" parent="." unique_id=1514505204]
+position = Vector2(80, 60)
+sprite_frames = SubResource("SpriteFrames_8g2ws")
+autoplay = "default"
+
+[node name="Panel" type="Panel" parent="SLACKER" unique_id=632247724]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+theme = ExtResource("4_2k155")
+metadata/_edit_use_anchors_ = true

@@ -1,8 +1,7 @@
 using Godot;
 using System;
-using System.Threading.Tasks;
 
-public partial class Cutscene1 : Node2D
+public partial class Cutscene2 : Node2D
 {
 	private Sprite2D Ernesto;
 	private Sprite2D OldMan;
@@ -12,24 +11,13 @@ public partial class Cutscene1 : Node2D
 	{
 		Ernesto = GetNode<Sprite2D>("Ernesto");
 		OldMan = GetNode<Sprite2D>("OldMan");
-		SLACKING = GetNode<AnimatedSprite2D>("SLACKER");
 
-		await Wait(1);
-
-		await DialogueSystem.Instance.ShowMessage([
-			"OI!!!!!!!!!!!!!",
-			"WAKE UP!!!!!!",
-			"I DIDN'T HIRE YOU TO SLACK AROUND YOU MUSHROOM!!"
-		]);
-
-		await Wait(0.5);
-		SLACKING.Hide();
 		await Wait(0.5);
 		Ernesto.Show();
 		OldMan.Show();
 
 		await DialogueSystem.Instance.ShowMessage([
-			"what the hell man?? I was dreamin' of big money there"
+			"nice "
 		]);
 
 		await DialogueSystem.Instance.ShowMessage([

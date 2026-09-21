@@ -6,14 +6,17 @@ public partial class DeliveryManager : Node
     public static DeliveryManager Instance { get; private set; }
     
     public int ActiveDeliveries { get; private set; } = 0;
+	public int CurrentLevel { get; private set; } = 0;
+	private int cutscenenumber = 2;
 
     public override void _Ready()
     {
         Instance = this;
     }
 
-    public void StartDeliveryRound(int amountOfHouses)
+    public void StartDeliveryRound()
     {
+		int amountOfHouses = 10 + (CurrentLevel * 10);
         // Find all houses in the group
         var allHouses = GetTree().GetNodesInGroup("Houses").OfType<House>().ToList();
         
@@ -43,7 +46,10 @@ public partial class DeliveryManager : Node
 
         if (ActiveDeliveries <= 0)
         {
+			string cutscenePath = $"res://Scenes/Cutscenes/cutscene{cutscenenumber}.tscn";
             GD.Print("All pizzas delivered!");
+			CurrentLevel++;
+			GetTree().ChangeSceneToFile(cutscenePath);
             // You can trigger the next wave or a win screen here
         }
     }
