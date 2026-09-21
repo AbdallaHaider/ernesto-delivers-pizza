@@ -26,15 +26,19 @@ public partial class Player : CharacterBody2D
 
     public Vector2 prevDir = Vector2.Zero;
 
-    double totalTime = 0.0f;
+    double time_since_last_shot = 0.0f;
 
-    double time = 0.0;
+    double time_since_invincibility = 0.0f;
+
+    double time_since_stagger = 0.0;
 
     StringName[] animList = { "up_idle", "sideways_idle", "down_idle", "up_moving", "sideways_moving", "down_moving" };
 
     public Vector2 fireDir = Vector2.Zero;
 
     bool shouldFire = false;
+
+    bool invincible = false;
 
     float pressed = 0;
 
@@ -43,6 +47,14 @@ public partial class Player : CharacterBody2D
     int index = 1;
 
     int idle_ind = 1;
+
+    public enum States
+    {
+        MOVING,
+        STAGGERED
+    }
+
+    private States State;
 
 
     // Called when the node enters the scene tree for the first time.
@@ -114,13 +126,15 @@ public partial class Player : CharacterBody2D
         GetTree().Root.AddChild(pizzaProjectile);
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _PhysicsProcess(double delta)
-	{
-        totalTime += delta;
+    public void move(double delta)
+    {
+        time_since_last_shot += delta;
+        if (invincible)
+        {
+            time_since_invincibility += delta;
+        }
 
         Speed += 1.0f * accel * (float)delta;
-        Speed = Math.Clamp(Speed, 0.0f, 3.5f);
 
         if (Speed > 0)
         {
@@ -134,7 +148,7 @@ public partial class Player : CharacterBody2D
             fireDir.X = -1.0f + absDir;
             fireDir.Y = -absDir;
             sprite.Play();
-        } 
+        }
         else
         {
             if (idle_ind != index)
@@ -145,40 +159,89 @@ public partial class Player : CharacterBody2D
                 sprite.Animation = animList[index];
             }
         }
-        time += delta;
-        if (time > 2.0)
-        {
-            GD.Print(Dir);
-            GD.Print(velocity);
-            GD.Print(Speed);
-            time = 0;
-        }
 
         if (pressed == 1)
         {
             velocity = Dir * Speed;
             prevDir.X = Dir.X;
             prevDir.Y = Dir.Y;
-        } 
+        }
         else
         {
             velocity = prevDir * Speed;
         }
 
-            MoveAndCollide(velocity);
 
         if (shouldFire)
         {
-            if (totalTime > 0.25)
+            if (time_since_last_shot > 0.25)
             {
                 GD.Print("GO PIZZA!");
                 FirePizzaGun(fireDir);
-                totalTime = 0.0;
+                time_since_last_shot = 0.0;
             }
             shouldFire = false;
         }
-        //choose between up or left
 
+        if (time_since_invincibility > 3.0f)
+        {
+            invincible = false;
+        }
+
+    }
+
+    public void Stagger(double delta)
+    {
+        GD.Print();
+        Speed -= 0.1f;
+        pressed = 0.0f;
+        time_since_stagger += delta;
+        index = (int)Math.Floor(time_since_stagger * 9) % 3;
+        sprite.Animation = animList[index];
+        sprite.FlipH = ((int)Math.Floor(time_since_stagger * 3) % 3 == 0);
+        velocity = (prevDir * Speed);
+        if (time_since_stagger > 1.0)
+        {
+            time_since_stagger = 0;
+            GD.Print("recovered!");
+            prevDir.X = -prevDir.X;
+            prevDir.X = -prevDir.X;
+            invincible = true;
+            State = States.MOVING;
+        }
+    }
+
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _PhysicsProcess(double delta)
+	{
+
+        var getCollision = MoveAndCollide(velocity);
+
+        if (getCollision != null && !invincible)
+        {
+            if (Speed > 2.0)
+            {
+                GD.Print("Ouch!");
+                index = 0;
+                prevDir.X = -prevDir.X;
+                prevDir.Y = -prevDir.Y;
+                State = States.STAGGERED;
+            }
+        }
+
+        switch (State)
+        {
+            case States.MOVING:
+                move((float)delta);
+                break;
+            case States.STAGGERED:
+
+                Stagger((float)delta);
+                break;
+
+        }
+
+        Speed = Math.Clamp(Speed, 0.0f, 3.5f);
         Dir = Vector2.Zero;
         pressed = 0.0f;
 
