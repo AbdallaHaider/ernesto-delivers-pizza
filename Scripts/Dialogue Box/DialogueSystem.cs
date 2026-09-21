@@ -35,6 +35,7 @@ public partial class DialogueSystem : Control
         DisplayCurrentPage();
 
 		await ToSignal(this, SignalName.DialogueFinished);
+		await ToSignal(GetTree().CreateTimer(0.3), SceneTreeTimer.SignalName.Timeout);
 	}
 
 	private void DisplayCurrentPage()

@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cdkgkasv61n4w" path="res://Srpites/UBCA/ubca2.tres" id="17_pkn5o"]
 [ext_resource type="Texture2D" uid="uid://be56djlwv45m8" path="res://Srpites/UBCA/ubca3.tres" id="18_c8cyl"]
 [ext_resource type="Texture2D" uid="uid://cw5hyb6uks82s" path="res://Srpites/UBCA/ubca4.tres" id="19_y42of"]
+[ext_resource type="Texture2D" uid="uid://bdgt00fyu7b4n" path="res://Srpites/umbero2.png" id="21_pkn5o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akkqd"]
 shader = ExtResource("2_ahbqi")
@@ -410,5 +411,10 @@ y_sort_enabled = true
 material = SubResource("ShaderMaterial_i3ufj")
 position = Vector2(-2377, 502)
 texture = ExtResource("19_y42of")
+
+[node name="Umbero2" type="Sprite2D" parent="." unique_id=1514285174]
+position = Vector2(879, 577)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_pkn5o")
 
 [editable path="House1"]
