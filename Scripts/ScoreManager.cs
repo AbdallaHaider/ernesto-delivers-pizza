@@ -44,7 +44,6 @@ public partial class ScoreManager : Node
 			CurrentMultiplier ++;
 		}
         
-        // Shout that the score changed
         EmitSignal(SignalName.ScoreChanged, CurrentScore, CurrentMultiplier); 
     }
 }
