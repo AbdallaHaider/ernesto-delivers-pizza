@@ -30,7 +30,7 @@ public partial class ScoreManager : Node
 	public void Reset()
 	{
 		CurrentScore = 0;
-		CurrentMultiplier = 0;
+		CurrentMultiplier = 1;
 	}
     public void AddScore(int amount)
     {

@@ -16,7 +16,7 @@ public partial class DeliveryManager : Node
 
     public void StartDeliveryRound()
     {
-		int amountOfHouses = 60 + (CurrentLevel * 10);
+		int amountOfHouses = 10 + (CurrentLevel * 10);
         // Find all houses in the group
         var allHouses = GetTree().GetNodesInGroup("Houses").OfType<House>().ToList();
         

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c7no6qyqp61ju"]
+
+[ext_resource type="Shader" uid="uid://baumdljiy5mt8" path="res://shaders/ui_shader.gdshader" id="1_dewlx"]
+[ext_resource type="FontFile" uid="uid://ccjuo2qjv8jv5" path="res://Fonts/Lanky Git Variable.ttf" id="2_dewlx"]
+[ext_resource type="Script" uid="uid://duncr2jdebhf" path="res://Scripts/ScoreDisplay.cs" id="3_qwshj"]
+[ext_resource type="Texture2D" uid="uid://bg4gn00433wcs" path="res://Srpites/Suburbsloptitle.png" id="5_48q88"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o14u1"]
+shader = ExtResource("1_dewlx")
+
+[node name="UI Canvas Layer" type="CanvasLayer" unique_id=1085929612]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=22588477]
+material = SubResource("ShaderMaterial_o14u1")
+offset_right = 160.0
+offset_bottom = 9.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=418435783]
+material = SubResource("ShaderMaterial_o14u1")
+offset_right = 112.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.7490196, 0.7490196, 0.7490196, 1)
+theme_override_fonts/font = ExtResource("2_dewlx")
+theme_override_font_sizes/font_size = 7
+text = "Score: 00 Mult:"
+script = ExtResource("3_qwshj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2084247729]
+position = Vector2(39, 122)
+texture = ExtResource("5_48q88")

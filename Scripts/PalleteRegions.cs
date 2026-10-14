@@ -7,13 +7,12 @@ public partial class PalleteRegions : Node2D
 {
     Dictionary<string,int> indexConnection = new Dictionary<string,int>();
 
-	private Area2D[] areas;
+    [Export] public Sprite2D townTitle;
 
+	private Area2D[] areas;
 
     private Area2D current_area;
 
-    
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
         
@@ -41,10 +40,5 @@ public partial class PalleteRegions : Node2D
     {
         GD.Print(name);
         RenderingServer.GlobalShaderParameterSet("pallete_index", indexConnection[name]);
-    }
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-	{
     }
 }

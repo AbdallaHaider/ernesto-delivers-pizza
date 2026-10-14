@@ -6,14 +6,14 @@ public partial class ScoreDisplay : Label
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Text = "Score: " + ScoreManager.Instance.CurrentScore + " " + ScoreManager.Instance.CurrentMultiplier + "x";
+		Text = "Score:" + ScoreManager.Instance.CurrentScore + " Mult:" + ScoreManager.Instance.CurrentMultiplier + "x";
 
         ScoreManager.Instance.ScoreChanged += OnScoreChanged;
 	}
 
 	private void OnScoreChanged(int newScore, int newMult)
     {
-        Text = "Score: " + newScore + " " + newMult + "x";
+        Text = "Score:" + newScore + " Mult:" + newMult + "x";
     }
 
 	public override void _ExitTree()

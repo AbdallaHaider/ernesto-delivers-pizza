@@ -42,7 +42,7 @@ color = Color(0.3529412, 0.22352941, 0.12941177, 1)
 
 [node name="Ernesto" type="Sprite2D" parent="." unique_id=1578526759]
 visible = false
-position = Vector2(40, 60)
+position = Vector2(40, 45)
 texture = ExtResource("3_8g2ws")
 
 [node name="Panel" type="Panel" parent="Ernesto" unique_id=2144906541]
@@ -55,7 +55,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="OldMan" type="Sprite2D" parent="." unique_id=1456449030]
 visible = false
-position = Vector2(120, 60)
+position = Vector2(120, 45)
 texture = ExtResource("5_pjp0n")
 
 [node name="Panel" type="Panel" parent="OldMan" unique_id=1224672907]
@@ -64,9 +64,10 @@ offset_top = -18.0
 offset_right = 18.0
 offset_bottom = 18.0
 theme = ExtResource("4_v7qlv")
+metadata/_edit_use_anchors_ = true
 
 [node name="SLACKER" type="AnimatedSprite2D" parent="." unique_id=1514505204]
-position = Vector2(80, 60)
+position = Vector2(80, 45)
 sprite_frames = SubResource("SpriteFrames_8g2ws")
 autoplay = "default"
 
