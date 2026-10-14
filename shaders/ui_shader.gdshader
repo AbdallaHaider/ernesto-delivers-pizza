@@ -27,24 +27,15 @@ const vec3 palletes[16] = {
 void fragment() {
     // Read the grayscale brightness directly from the node's Inspector Color
     float brightness = COLOR.r;
-    
-    // Use strict thresholds to lock the index between 0 and 3.
-    // This prevents math bugs and color-space crushing entirely.
-    int index = 0;
-    if (brightness > 0.8) {
-        index = 3; // Pure White / Lightest
-    } else if (brightness > 0.5) {
-        index = 2; // Light Gray
-    } else if (brightness > 0.2) {
-        index = 1; // Dark Gray
-    } else {
-        index = 0; // Black / Darkest
-    }
+
+	int index = int(round(brightness * 4.0));
 
     // We still multiply the alpha by TEXTURE.a so Labels keep their text shapes 
     // instead of turning into solid blocks.
-    float final_alpha = COLOR.a * texture(TEXTURE, UV).a;
-    
+    //float final_alpha = COLOR.a * texture(TEXTURE, UV).a;
+	
+    float alpha = texture(TEXTURE, UV).a;
+	
     // Apply the mapped color
-    COLOR = vec4(palletes[(4 * pallete_index) + index], final_alpha);
+    COLOR = vec4(palletes[(4 * pallete_index) + index], alpha);
 }
