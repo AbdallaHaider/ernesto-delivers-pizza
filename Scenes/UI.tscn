@@ -3,10 +3,49 @@
 [ext_resource type="Shader" uid="uid://baumdljiy5mt8" path="res://shaders/ui_shader.gdshader" id="1_dewlx"]
 [ext_resource type="FontFile" uid="uid://ccjuo2qjv8jv5" path="res://Fonts/Lanky Git Variable.ttf" id="2_dewlx"]
 [ext_resource type="Script" uid="uid://duncr2jdebhf" path="res://Scripts/ScoreDisplay.cs" id="3_qwshj"]
-[ext_resource type="Texture2D" uid="uid://bg4gn00433wcs" path="res://Srpites/Suburbsloptitle.png" id="5_48q88"]
+[ext_resource type="Shader" uid="uid://ba6t3oy22q806" path="res://shaders/TownTitleTransition.gdshader" id="4_48q88"]
+[ext_resource type="Texture2D" uid="uid://brjmk6ut0mpte" path="res://Srpites/UI/TownTitles/towntitle-Sheet.png" id="5_48q88"]
+[ext_resource type="Script" uid="uid://mkghrplha22b" path="res://Scripts/TownNameShow.cs" id="5_qwshj"]
+[ext_resource type="Texture2D" uid="uid://cpsgd28aoxsa7" path="res://Srpites/UI/TownTitles/ubcatitle.png" id="6_xjg7p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o14u1"]
 shader = ExtResource("1_dewlx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xjg7p"]
+shader = ExtResource("4_48q88")
+shader_parameter/fade_offset = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg6lk"]
+atlas = ExtResource("5_48q88")
+region = Rect2(81, 0, 81, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wunin"]
+atlas = ExtResource("5_48q88")
+region = Rect2(162, 0, 81, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjg7p"]
+atlas = ExtResource("5_48q88")
+region = Rect2(0, 0, 81, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1q7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg6lk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xjg7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wunin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjg7p")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="UI Canvas Layer" type="CanvasLayer" unique_id=1085929612]
 
@@ -27,6 +66,8 @@ theme_override_font_sizes/font_size = 7
 text = "Score: 00 Mult:"
 script = ExtResource("3_qwshj")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2084247729]
-position = Vector2(39, 122)
-texture = ExtResource("5_48q88")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2046190649]
+material = SubResource("ShaderMaterial_xjg7p")
+position = Vector2(43, 125)
+sprite_frames = SubResource("SpriteFrames_f1q7a")
+script = ExtResource("5_qwshj")

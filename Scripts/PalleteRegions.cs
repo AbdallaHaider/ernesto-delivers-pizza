@@ -7,6 +7,8 @@ public partial class PalleteRegions : Node2D
 {
     Dictionary<string,int> indexConnection = new Dictionary<string,int>();
 
+    public String LastVisit;
+
     [Export] public Sprite2D townTitle;
 
 	private Area2D[] areas;
@@ -26,19 +28,24 @@ public partial class PalleteRegions : Node2D
         indexConnection.Add("LiquidCity", 2);
 
 
-        for (int i = 0; i < areas.Length; i++)
+        for (int index = 0; index < areas.Length; index++)
         {
-            int index = i;
-            areas[index].AreaEntered += (body) => SwapIt(body, areas[index].GetName().ToString());
-            GD.Print(areas[i].GetName().ToString());
+            string areaName = areas[index].GetName().ToString();
+            areas[index].AreaEntered += (body) => SwapIt(areaName);
+            GD.Print(areaName);
         }
 
         RenderingServer.GlobalShaderParameterSet("pallete_index", 3);
     }
 
-    public void SwapIt(Area2D body, String name)
+    public void SwapIt(string Areaname)
     {
-        GD.Print(name);
-        RenderingServer.GlobalShaderParameterSet("pallete_index", indexConnection[name]);
+        if (!string.Equals(Areaname, LastVisit))
+        {
+        TownNameShow.Instance.ShowTownSign(indexConnection[Areaname]);
+        GD.Print(Areaname);
+        RenderingServer.GlobalShaderParameterSet("pallete_index", indexConnection[Areaname]);
+        LastVisit = Areaname;
+        }    
     }
 }
