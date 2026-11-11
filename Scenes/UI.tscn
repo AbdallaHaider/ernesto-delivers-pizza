@@ -52,17 +52,19 @@ animations = [{
 [node name="ColorRect" type="ColorRect" parent="." unique_id=22588477]
 material = SubResource("ShaderMaterial_o14u1")
 offset_right = 160.0
-offset_bottom = 9.0
+offset_bottom = 10.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=418435783]
 material = SubResource("ShaderMaterial_o14u1")
-offset_right = 112.0
-offset_bottom = 23.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 113.0
+offset_bottom = 24.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.7490196, 0.7490196, 0.7490196, 1)
 theme_override_fonts/font = ExtResource("2_dewlx")
-theme_override_font_sizes/font_size = 7
+theme_override_font_sizes/font_size = 8
 text = "Score: 00 Mult:"
 script = ExtResource("3_qwshj")
 
