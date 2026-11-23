@@ -7,7 +7,7 @@
 - ### UI and Game mechanics
   - [ ] Traffic System
   - [ ] Exclamation Mark on orders
-  - [ ] Titles when entering towns
+  - [x] Titles when entering towns
 - ### Scoring System
   - [ ] Post delivery session summary screen
   - [ ] Integrate time to delivery score
