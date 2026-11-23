@@ -11,7 +11,6 @@
 - ### Scoring System
   - [ ] Post delivery session summary screen
   - [ ] Integrate time to delivery score
-  - [ ] Performance summary screen after level
 - ### Sla
   - [x] Rework building sprites on UBCA and Liquid City to have the open open windows on lower floors, since it is sometimes hard to see due to the resolution
   - [ ] Add sounds and some music
