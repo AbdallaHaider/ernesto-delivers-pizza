@@ -6,7 +6,7 @@
 ## THINGS TO BE IMPLEMENTED POST JAM
 - ### UI and Game mechanics
   - [ ] Traffic System
-  - [ ] Exclamation Mark on orders
+  - [x] Exclamation Mark on orders
   - [x] Titles when entering towns
 - ### Scoring System
   - [ ] Post delivery session summary screen
