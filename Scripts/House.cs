@@ -12,6 +12,7 @@ public partial class House : StaticBody2D
     private PackedScene Window { get; set; }
 
 	[Export] public Sprite2D HouseSprite;
+    [Export] public Sprite2D Exclamation;
     [Export] public CollisionShape2D WindowCollision;
     
 	public bool IsWaitingForPizza { get; private set; } = false;
@@ -25,6 +26,7 @@ public partial class House : StaticBody2D
         
         // Swap the texture file name automatically
         string currentPath = HouseSprite.Texture.ResourcePath;
+        Exclamation.Show();
         string newPath = currentPath.Replace("_closed", "_open");
         HouseSprite.Texture = GD.Load<Texture2D>(newPath);
 
@@ -42,6 +44,7 @@ public partial class House : StaticBody2D
         // Change the sprite back
         string currentPath = HouseSprite.Texture.ResourcePath;
         string newPath = currentPath.Replace("_open", "_closed");
+        Exclamation.Hide();
         HouseSprite.Texture = GD.Load<Texture2D>(newPath);
 
         // Tell the manager to subtract 1
@@ -49,8 +52,8 @@ public partial class House : StaticBody2D
     }
 
 	public override void _Ready()
-	{
-	}
+    {
+    }
 
 	public void SetDeliverable()
 	{

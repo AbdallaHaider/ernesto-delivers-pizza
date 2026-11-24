@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://brjmk6ut0mpte" path="res://Srpites/UI/TownTitles/towntitle-Sheet.png" id="5_48q88"]
 [ext_resource type="Script" uid="uid://mkghrplha22b" path="res://Scripts/TownNameShow.cs" id="5_qwshj"]
 [ext_resource type="Texture2D" uid="uid://cpsgd28aoxsa7" path="res://Srpites/UI/TownTitles/ubcatitle.png" id="6_xjg7p"]
+[ext_resource type="Texture2D" uid="uid://be1u4kamxghdm" path="res://Srpites/UI/TownTitles/liquidcitytitle.png" id="7_mg6lk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o14u1"]
 shader = ExtResource("1_dewlx")
@@ -18,10 +19,6 @@ shader_parameter/fade_offset = 0
 [sub_resource type="AtlasTexture" id="AtlasTexture_mg6lk"]
 atlas = ExtResource("5_48q88")
 region = Rect2(81, 0, 81, 27)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wunin"]
-atlas = ExtResource("5_48q88")
-region = Rect2(162, 0, 81, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjg7p"]
 atlas = ExtResource("5_48q88")
@@ -37,7 +34,7 @@ animations = [{
 "texture": ExtResource("6_xjg7p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wunin")
+"texture": ExtResource("7_mg6lk")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xjg7p")
@@ -70,6 +67,6 @@ script = ExtResource("3_qwshj")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2046190649]
 material = SubResource("ShaderMaterial_xjg7p")
-position = Vector2(43, 125)
+position = Vector2(43, 128)
 sprite_frames = SubResource("SpriteFrames_f1q7a")
 script = ExtResource("5_qwshj")
