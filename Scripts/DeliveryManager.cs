@@ -7,7 +7,7 @@ public partial class DeliveryManager : Node
     
     public int ActiveDeliveries { get; private set; } = 0;
 	public int CurrentLevel { get; private set; } = 0;
-	private int cutscenenumber = 2;
+	private int cutsceneNumber = 2;
 
     public override void _Ready()
     {
@@ -45,7 +45,7 @@ public partial class DeliveryManager : Node
 
         if (ActiveDeliveries <= 0)
         {
-			string cutscenePath = $"res://Scenes/Cutscenes/cutscene{cutscenenumber}.tscn";
+			string cutscenePath = $"res://Scenes/Cutscenes/cutscene{cutsceneNumber}.tscn";
             GD.Print("All pizzas delivered!");
 			CurrentLevel++;
 			StartDeliveryRound();

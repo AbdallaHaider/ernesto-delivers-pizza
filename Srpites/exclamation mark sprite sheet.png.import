@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg4gn00433wcs"
-path="res://.godot/imported/Suburbsloptitle.png-37165ab4461e5950f47a53e78655bcdb.ctex"
+uid="uid://bqy55lmt45jbd"
+path="res://.godot/imported/exclamation mark sprite sheet.png-2b4e4790bd9f32b91bc4087b602fe9bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Srpites/Suburbsloptitle.png"
-dest_files=["res://.godot/imported/Suburbsloptitle.png-37165ab4461e5950f47a53e78655bcdb.ctex"]
+source_file="res://Srpites/exclamation mark sprite sheet.png"
+dest_files=["res://.godot/imported/exclamation mark sprite sheet.png-2b4e4790bd9f32b91bc4087b602fe9bf.ctex"]
 
 [params]
 

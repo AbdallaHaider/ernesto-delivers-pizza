@@ -1,11 +1,70 @@
 [gd_scene format=3 uid="uid://bsi50csqikfh0"]
 
-[ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="1_qtlar"]
 [ext_resource type="Script" uid="uid://be2p350w0ukac" path="res://Scripts/House.cs" id="1_rk7hg"]
+[ext_resource type="Texture2D" uid="uid://b3q6axohult71" path="res://Srpites/exclamation mark.png" id="3_3jr7h"]
+[ext_resource type="Shader" uid="uid://bal34mdxktumq" path="res://shaders/tile_map.gdshader" id="3_iqtyj"]
 [ext_resource type="Texture2D" uid="uid://wfirggxgjvh1" path="res://Srpites/ALL BUILDINGS.png" id="3_rk7hg"]
+[ext_resource type="Script" uid="uid://cyxhan0yxgsbs" path="res://Scripts/HouseExclamation.cs" id="5_xi0mm"]
+[ext_resource type="Texture2D" uid="uid://b2sal52ycu0pt" path="res://Srpites/exclamation mark small.png" id="6_bu6dc"]
+
+[sub_resource type="Shader" id="Shader_iqtyj"]
+code = "shader_type canvas_item;
+render_mode skip_vertex_transform;
+
+global uniform int pallete_index;
+
+const vec3 palletes[16] = { 
+		vec3(90.0 / 255.0, 57.0 / 255.0, 33.0 / 255.0),
+		vec3(107.0 / 255.0, 140.0 / 255.0, 66.0 / 255.0),
+		vec3(123.0 / 255.0, 198.0 / 255.0, 123.0 / 255.0),
+		vec3(255.0 / 255.0, 255.0 / 255.0, 181.0 / 255.0),
+
+		vec3(0.0 / 255.0, 33.0 / 255.0, 69.0 / 255.0),
+		vec3(18.0 / 255.0, 87.0 / 255.0, 165.0 / 255.0),
+		vec3(64.0 / 255.0, 180.0 / 255.0, 229.0 / 255.0),
+		vec3(222.0 / 255.0, 222.0 / 255.0, 222.0 / 255.0),
+
+		vec3(50.0 / 255.0, 47.0 / 255.0, 61.0 / 255.0),
+		vec3(152.0 / 255.0, 96.0 / 255.0, 117.0 / 255.0),
+		vec3(238.0 / 255.0, 148.0 / 255.0, 137.0 / 255.0),
+		vec3(242.0 / 255.0, 255.0 / 255.0, 232.0 / 255.0),
+
+		vec3(57.0 / 255.0, 44.0 / 255.0, 66.0 / 255.0),
+		vec3(194.0 / 255.0, 63.0 / 255.0, 48.0 / 255.0),
+		vec3(229.0 / 255.0, 124.0 / 255.0, 72.0 / 255.0),
+		vec3(255.0 / 255.0, 244.0 / 255.0, 212.0 / 255.0)
+		};
+
+void vertex() {
+	//float y_value = MODEL_MATRIX[3][1];
+	//float scaling_intensity = pow(1000.0, y_value)/(999.0 - 1.0);
+	//mat4 scaling = mat4(	vec4(1., 0., 0., 0.), 
+	//						vec4(0., scaling_intensity * 0.001, 0., 0.), 
+	//						vec4(0., 0., 1., 0.), 
+	//						vec4(0., 0., 0., 1.));
+	VERTEX = (MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0)).xy;
+}
+
+
+void fragment() {
+
+	vec3 grayScale = texture(TEXTURE, UV).rgb;
+	float alpha = texture(TEXTURE, UV).a;
+	int index = int(round(grayScale.r * 4.0));
+
+	COLOR = vec4(palletes[4 * pallete_index + index], alpha);
+
+	
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykh0f"]
-shader = ExtResource("1_qtlar")
+shader = SubResource("Shader_iqtyj")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dolh7"]
 atlas = ExtResource("3_rk7hg")
@@ -18,9 +77,13 @@ size = Vector2(78, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykh0f"]
 size = Vector2(59, 10)
 
-[node name="House" type="StaticBody2D" unique_id=1584328309 node_paths=PackedStringArray("HouseSprite", "WindowCollision") groups=["Houses"]]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xi0mm"]
+shader = ExtResource("3_iqtyj")
+
+[node name="House" type="StaticBody2D" unique_id=1584328309 node_paths=PackedStringArray("HouseSprite", "Exclamation", "WindowCollision") groups=["Houses"]]
 script = ExtResource("1_rk7hg")
 HouseSprite = NodePath("Sprite2D")
+Exclamation = NodePath("exclamation")
 WindowCollision = NodePath("PizzaArea/PizzaHitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1407336356]
@@ -45,3 +108,12 @@ position = Vector2(-4.5, -21)
 shape = SubResource("RectangleShape2D_ykh0f")
 disabled = true
 debug_color = Color(0.99954575, 0, 0.124000736, 0.41960785)
+
+[node name="exclamation" type="Sprite2D" parent="." unique_id=1557901693]
+visible = false
+z_index = 100
+material = SubResource("ShaderMaterial_xi0mm")
+position = Vector2(-24, -18)
+texture = ExtResource("3_3jr7h")
+script = ExtResource("5_xi0mm")
+smallExclamation = ExtResource("6_bu6dc")
